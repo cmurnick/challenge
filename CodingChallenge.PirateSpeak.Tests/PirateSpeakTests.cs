@@ -1,21 +1,19 @@
 ﻿using Given.Common;
-using Xunit;
+using NUnit.Framework;
 
 namespace CodingChallenge.PirateSpeak.Tests
 {
     public class PirateSpeakTests
     {
-
-        [Theory] 
-        [InlineData("trisf", new []{"first"}, new[] {"first"})]
-        [InlineData("oob", new[] {"bob", "baobob"},new string[0])]
-        [InlineData("ainstuomn", new[] { "mountains", "hills", "mesa" }, new[] { "mountains" })]
-        [InlineData("oopl", new[] { "donkey", "pool", "horse", "loop" }, new[] { "pool", "loop" })]
-        [InlineData("oprst", new[] {"sport", "ports", "ball", "bat", "port"}, new[] {"sport", "ports"})]
+        [TestCase("trisf", new []{"first"}, new[] {"first"})]
+        [TestCase("oob", new[] {"bob", "baobob"},new string[0])]
+        [TestCase("ainstuomn", new[] { "mountains", "hills", "mesa" }, new[] { "mountains" })]
+        [TestCase("oopl", new[] { "donkey", "pool", "horse", "loop" }, new[] { "pool", "loop" })]
+        [TestCase("oprst", new[] {"sport", "ports", "ball", "bat", "port"}, new[] {"sport", "ports"})]
         public void TestPirateVocabulary(string jumble, string[] dictionary, object expectedResult)
         {
             var actualResult = new Solution().GetPossibleWords(jumble, dictionary);
-            expectedResult.ShouldBeTheSameAs(actualResult);
+            Assert.AreEqual(expectedResult,actualResult);
         }
     }
 }

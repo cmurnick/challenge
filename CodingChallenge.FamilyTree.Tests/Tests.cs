@@ -1,13 +1,13 @@
 ﻿using Given.Common;
-using Xunit;
+using NUnit.Framework;
 
 namespace CodingChallenge.FamilyTree.Tests
 {
-    
+    [TestFixture]
     public class TreeTests
     {
         
-        [Fact]
+        [Test]
         public void if_the_person_exists_in_tree_the_result_should_be_january()
         {
             var tree = FamilyTreeGenerator.Make();
@@ -15,7 +15,7 @@ namespace CodingChallenge.FamilyTree.Tests
             result.ShouldEqual("January");
         }
            
-        [Fact]
+        [Test]
         public void if__the_person_exists_at_the_top_tree_the_result_should_be_may()
         {
             var tree = FamilyTreeGenerator.Make();
@@ -23,7 +23,7 @@ namespace CodingChallenge.FamilyTree.Tests
             result.ShouldEqual("May");
         }
 
-        [Fact]
+        [Test]
         public void if_the_person_does_not_exist_in_the_tree_the_result_should_be_empty()
         {
             var tree = FamilyTreeGenerator.Make();
